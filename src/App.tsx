@@ -16,10 +16,9 @@ import {
  * Roadmap — Defenders of the Tomb (TOD)
  * Pegá este archivo en bolt.new (React + Tailwind + lucide-react).
  *
- * Hero: `esta_imagen_pone.png` dentro de `public/` (Vite/bolt → `/esta_imagen_pone.png`).
- * Si en bolt lo tenés en la raíz, mové el archivo a `public/` para que cargue.
+ * Hero: `tod-hero-gameplay.png` en `public/` (Vite → `${BASE_URL}tod-hero-gameplay.png`).
  */
-const HERO_GAMEPLAY_SRC = '/esta_imagen_pone.png';
+const HERO_GAMEPLAY_SRC = `${import.meta.env.BASE_URL}tod-hero-gameplay.png`;
 
 type RoadmapTone = 'amber' | 'violet' | 'cyan' | 'emerald';
 

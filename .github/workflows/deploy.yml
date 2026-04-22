@@ -20,6 +20,11 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+      - name: Verify production bundle (not dev index.html)
+        run: |
+          test -f dist/index.html
+          grep -q 'assets/index-' dist/index.html || (echo 'dist/index.html no referencia al bundle de Vite; revisá que el build sea "vite build" y que Pages suba ./dist' && exit 1)
+          ! grep -q 'src/main.tsx' dist/index.html || (echo 'dist/index.html sigue apuntando a src/main.tsx (fuente). No subas la raíz del repo como sitio.' && exit 1)
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
